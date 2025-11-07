@@ -1,0 +1,31 @@
+services:
+  # Servicio Base de datos MySQL
+  mysql-todo:
+    image: mysql:8.0
+    container_name: mysql-todo
+    restart: always
+    environment:     
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: todos
+    volumes:     
+      - vol-mysql:/var/lib/mysql
+
+  # Servicio Aplicación 
+  tpfinal:
+    image: sebaadocker/app-tfinal:v1.0
+    container_name: tpfinal
+    restart: always    
+    ports:     
+      - "5000:3000"
+    environment:     
+      MYSQL_HOST: mysql-todo       
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 123456
+      MYSQL_DB: todos
+    # Depende de MySQL para asegurar que la DB intente iniciarse primero
+    depends_on:
+      - mysql-todo 
+
+# Definición de volúmenes 
+volumes:
+  vol-mysql:
