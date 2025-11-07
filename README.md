@@ -111,7 +111,8 @@ Antes de poder correr la aplicación, necesitamos obtener el código fuente y de
     ```
 - **1.3)** ¿Puede hacer algo para optimizar o mejorar la imagen?. Describa qué modificaciones puede hacer para optimizar la imagen.
     ```bash
-    Si podemos utilizar Multi-stage builds, permite construir imágenes más pequeñas y eficientes al separar las etapas de construcción y ejecución.
+    Si, podemos utilizar Multi-stage builds que permite construir imágenes más pequeñas y eficientes al separar las etapas de construcción y ejecución.
+    Tambien es recomendable utilizar tag para identificar y versionar las imágenes.
     
     # Etapa 1: Construcción
     FROM node:20 AS build
