@@ -209,7 +209,11 @@ Para compartir la imágen de la aplicación usaremos la registry de [DockerHub](
 
 - **3.1)** Comparta la URL de DockerHub para que pueda ser posible probar y descargar su imágen.
 
-    [URL de la imágen del proyecto final](https://hub.docker.com/r/sebaadocker/app-tfinal)
+  [URL de la imágen del proyecto final](https://hub.docker.com/r/sebaadocker/app-tfinal)
+  
+  docker pull sebaadocker/app-tfinal:v1.0
+  
+  docker run --name app-tfinal -dp 4000:3000 sebaadocker/app-tfinal:v1.0
 
 > [!IMPORTANT]
 > Agregue un _overview_ para el repositorio de Dockerhub con instrucciones para correr la imágen y todo lo que considere necesario para que un tercero pueda ejecutar la imágen.
