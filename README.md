@@ -141,15 +141,19 @@ Una vez creada la imágen, debería ser capaz de correr la aplicación.
 
 - **1.4)** Ejecute un comando para poder correr la aplicación.
     ```bash
-    # Escriba acá el comando
+    docker run --name app-tfinal -dp 4000:3000 app:v0.1
     ```
 - **1.5)** Explique el comando de la respuesta anterior y cada parámetro enviado.
     ```bash
-    # Escriba la explicación
+    docker run: El comando base para ejecutar un contenedor.
+    -- name: nombre del contenedor
+    -d: Ejecuta el contenedor en segundo plano, lo que te permite seguir usando la terminal.
+    -p: expone el puerto del host al del contenedor <host_port>:<container_port>
     ```
 - **1.6)** ¿Cómo puede saber si el contenedor está corriendo?
     ```bash
-    # Escriba acá el comando
+    docker ps
+    docker ps -a (incluye los que están en ejecucion, los que están detenidos o han finalizado su ejecución (Exited))
     ```
 - **1.7)** Adjunte una captura de pantalla con la aplicación funcionando con la URL utilizada para acceder. Reemplace la imágen siguiente por su captura de pantalla.
     ![](./imgs/broken_img.png)
