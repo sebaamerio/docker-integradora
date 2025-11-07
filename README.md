@@ -191,8 +191,7 @@ La actualización del código recientemente realizada deja obsoleta la antigua v
     docker rmi app:v1.0    
     ```
 - **2.3)** ¿Como puede listar las imágenes para comprobar que se ha eliminado la imagen del punto anterior?
-    ```bash
-    # Escriba acá el comando utilizado
+    ```bash   
     docker images
     ```
 
@@ -232,7 +231,8 @@ Los datos en esta APP se guardan en un archivo `/etc/todos/todo.db`.
 
 - **4.1)** Escriba los comandos necesarios para persistir la base de datos. Decida que tipo de persistencia es la adecuada para su app ([Bind mounts](https://docker.idepba.com.ar/clase5.html#/bind_mounts) o [volumes](https://docker.idepba.com.ar/clase5.html#/volumes))
     ```bash
-    # Escriba el comando necesario
+    docker volume create vol_tfinal
+    docker run --name app-tfinal -v vol_tfinal:/etc/todos -dp 4000:3000 sebaadocker/app-tfinal:v1.0
     ```
 
 
