@@ -103,11 +103,11 @@ Antes de poder correr la aplicación, necesitamos obtener el código fuente y de
 
 - **1.1)** Ejecute el comando correspondiente para buildear la imagen. Elija un nombre de imagen y un tag acorde. 
     ```bash
-   docker build -t app:v0.1 .
+   docker build -t app:v1.0 .
     ```
 - **1.2)** ¿Qué espacio ocupa la imagen una vez creada?
     ```bash
-    Ejecuto el comando docker images para ver el detalle de las imagenes. La imagen ocupa un espacio de 282MB
+    La imagen ocupa un espacio de 282MB. Esto se puede ver con el comando docker images. 
     ```
 - **1.3)** ¿Puede hacer algo para optimizar o mejorar la imagen?. Describa qué modificaciones puede hacer para optimizar la imagen.
     ```bash
@@ -141,7 +141,7 @@ Una vez creada la imágen, debería ser capaz de correr la aplicación.
 
 - **1.4)** Ejecute un comando para poder correr la aplicación.
     ```bash
-    docker run --name app-tfinal -dp 4000:3000 app:v0.1
+    docker run --name app-tfinal -dp 4000:3000 app:v1.0
     ```
 - **1.5)** Explique el comando de la respuesta anterior y cada parámetro enviado.
     ```bash
@@ -186,11 +186,14 @@ La actualización del código recientemente realizada deja obsoleta la antigua v
 
 - **2.2)** Elimine la imágen y el contenedor hecho en el punto anterior: Mostrar comandos utilizados.
     ```bash
-    # Escriba acá el comando utilizado
+    docker stop app-tfinal
+    docker rm app-tfinal
+    docker rmi app:v1.0    
     ```
 - **2.3)** ¿Como puede listar las imágenes para comprobar que se ha eliminado la imagen del punto anterior?
     ```bash
     # Escriba acá el comando utilizado
+    docker images
     ```
 
 
