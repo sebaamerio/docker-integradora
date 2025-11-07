@@ -103,15 +103,29 @@ Antes de poder correr la aplicación, necesitamos obtener el código fuente y de
 
 - **1.1)** Ejecute el comando correspondiente para buildear la imagen. Elija un nombre de imagen y un tag acorde. 
     ```bash
-    # Escriba acá el comando utilizado
+   docker build -t app:v0.1 .
     ```
 - **1.2)** ¿Qué espacio ocupa la imagen una vez creada?
     ```bash
-    # Espacio utilizado
+    Ejecuto el comando docker images para ver el detalle de las imagenes. La imagen ocupa un espacio de 282MB
     ```
 - **1.3)** ¿Puede hacer algo para optimizar o mejorar la imagen?. Describa qué modificaciones puede hacer para optimizar la imagen.
     ```bash
-    # Describa que podría hacer para mejorar u optimizar la creación de la imágen.
+    Si podemos utilizar Multi-stage builds, permite construir imágenes más pequeñas y eficientes al separar las etapas de construcción y ejecución.
+    
+    # Etapa 1: Construcción
+    FROM node:20 AS build
+    WORKDIR /app
+    COPY package*.json ./
+    RUN npm install
+    COPY . .
+
+    # Etapa 2: Producción
+    FROM alpine:3.22 AS production
+    WORKDIR /app
+    COPY --from=build /app /app
+    EXPOSE 3000
+    CMD ["npm", "start"]
     ```
 
 
